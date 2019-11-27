@@ -1,0 +1,11 @@
+
+# Depth scaling - multiply the depth images with this factor to get depth in mm.
+depth_scale: 1.0
+
+# Intrinsic camera parameters
+width: 640
+height: 480
+fx: 531.15
+fy: 531.15
+cx: 320.0
+cy: 240.0

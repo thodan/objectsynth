@@ -1,1 +1,116 @@
-ObjectSynth - coming soon
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="photorealistic, synthetic, object detection, object recognition, computer vision, dataset" />
+
+<title>Photorealistic Image Synthesis for Object Instance Detection</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+
+<nav class="navbar">
+
+<div class="title">
+<h1>Photorealistic Image Synthesis for Object Instance Detection</h1>
+<p>
+<a href="http://www.hodan.xyz">Tomas Hodan</a>&nbsp;&nbsp;
+<a href="https://www.microsoft.com/en-us/research/people/vivineet/">Vibhav Vineet</a>&nbsp;&nbsp;
+<a href="https://www.microsoft.com/en-us/research/people/rgal/">Ran Gal</a>&nbsp;&nbsp;
+<a href="https://www.linkedin.com/in/emanuelds">Emanuel Shalev</a>&nbsp;&nbsp;
+<a href="https://www.linkedin.com/in/jon-hanzelka-80701b78/">Jon Hanzelka</a>&nbsp;&nbsp;
+<a href="https://www.linkedin.com/in/treb-connell-565b3631/">Treb Connell</a>&nbsp;&nbsp;
+<a href="https://www.linkedin.com/in/pedro-urbina-b7b1bb21/">Pedro Urbina</a>&nbsp;&nbsp;
+<a href="https://www.microsoft.com/en-us/research/people/sudipsin/">Sudipta N. Sinha</a>&nbsp;&nbsp;
+<a href="https://www.microsoft.com/en-us/research/people/bguenter/">Brian Guenter</a>
+<br />
+International Conference on Image Processing (ICIP) 2019, Taipei
+</p>
+</div>
+
+<div class="pub_links">
+	<a href="https://arxiv.org/pdf/1902.03334.pdf" class="pub_link">PAPER</a>
+	<a href="http://cmp.felk.cvut.cz/~hodanto2/data/hodan2019photorealistic_slides_icip.pdf" class="pub_link">SLIDES</a>
+	<a href="http://cmp.felk.cvut.cz/~hodanto2/data/hodan2019photorealistic.bib" class="pub_link">BIB</a>
+	<div class="end"></div>
+</div>
+
+<div class="logos">
+	<a href="http://www.fel.cvut.cz/en/"><img src="img/ctu_logo_black.png" alt="Czech Technical University in Prague" /></a>
+	<a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-redmond/"><img src="img/msr_logo_black.png" alt="Microsoft Research" /></a>
+</div>
+
+<div class="end"></div>
+</nav>
+
+
+<div class="block">
+<h2>Abstract</h2>
+<p>
+We present an approach to synthesize highly photorealistic images of 3D object
+models, which we use to train a convolutional neural network for detecting the
+objects in real images. The proposed approach has three key ingredients:
+(1) 3D object models are rendered in 3D models of complete scenes with realistic
+materials and lighting, (2) plausible geometric configuration of objects and
+cameras in a scene is generated using physics simulations, and (3) high
+photorealism of the synthesized images achieved by physically based rendering.
+When trained on images synthesized by the proposed approach, the Faster R-CNN
+object detector achieves a 24% absolute improvement of mAP@.75IoU on Rutgers
+APC and 11% on LineMod-Occluded datasets, compared to a baseline where the
+training images are synthesized by rendering object models on top of random
+photographs. This work is a step towards being able to effectively train object
+detectors without capturing or annotating any real images.
+</p>
+</div>
+
+
+<div class="block">
+<h2 id="dataset">Dataset</h2>
+
+<ul>
+<li><a href="https://www.dropbox.com/sh/dceks9etix89f3a/AAAyDCCffd88N-sBkX8YcLC2a?dl=0">Dataset of ~400K PBR images</a> - Low and high quality PBR images rendered in 6 scenes are provided. There is one ZIP archive per scene and quality. Each archive has 10-25GB and contains the following directories:
+<ul style="margin-top: 4px; margin-bottom: 4px;">
+<li><i>rgb</i>, <i>depth</i> &ndash; Color and depth images.</li>
+<li><i>gt</i> &ndash; Ground-truth 6D object poses and 2D bounding boxes. The 6D object poses are represented as in the <a href="https://github.com/thodan/bop_toolkit/blob/master/docs/bop_datasets_format.md#ground-truth-annotations">BOP format</a>.</li>
+<li><i>mask</i>, <i>mask_visib</i> &ndash; Ground-truth masks of object silhouettes and masks of the visible parts of object silhouettes.</li>
+</ul>
+</li>
+<li><a href="data/camera_scene_1-5.yml">Camera parameters for scenes 1&ndash;5</a></li>
+<li><a href="data/camera_scene_6.yml">Camera parameters for scene 6</a></li>
+</ul>
+
+</div>
+
+<div class="block">
+<h2>Examples of PBR images</h2>
+
+<p>Below are examples of high quality PBR images of the LineMod objects in Scenes 1–5 (top five rows), and
+images of the Rutgers APC objects in Scene 6 (bottom row). The images were automatically annotated with
+2D bounding boxes, masks and 6D poses of the visible object instances.</p>
+
+<div class="gallery">
+<a href="img/supp/pbr/lm_synthetic_benchmark_room/000000033.jpg"><img src="img/supp/pbr/lm_synthetic_benchmark_room/000000033.jpg" /></a><a href="img/supp/pbr/lm_synthetic_benchmark_room/000000236.jpg"><img src="img/supp/pbr/lm_synthetic_benchmark_room/000000236.jpg" /></a><a href="img/supp/pbr/lm_synthetic_benchmark_room/000000318.jpg"><img src="img/supp/pbr/lm_synthetic_benchmark_room/000000318.jpg" /></a><a href="img/supp/pbr/lm_synthetic_benchmark_room/000000425.jpg"><img src="img/supp/pbr/lm_synthetic_benchmark_room/000000425.jpg" /></a><a href="img/supp/pbr/lm_conference_room_1305/000000001_1.jpg"><img src="img/supp/pbr/lm_conference_room_1305/000000001_1.jpg" /></a><a href="img/supp/pbr/lm_conference_room_1305/000000001_2.jpg"><img src="img/supp/pbr/lm_conference_room_1305/000000001_2.jpg" /></a><a href="img/supp/pbr/lm_conference_room_1305/000000005_2.jpg"><img src="img/supp/pbr/lm_conference_room_1305/000000005_2.jpg" /></a><a href="img/supp/pbr/lm_conference_room_1305/000000010_1.jpg"><img src="img/supp/pbr/lm_conference_room_1305/000000010_1.jpg" /></a><a href="img/supp/pbr/lm_sl_lift_01/000000010_2.jpg"><img src="img/supp/pbr/lm_sl_lift_01/000000010_2.jpg" /></a><a href="img/supp/pbr/lm_sl_lift_01/000000002_3.jpg"><img src="img/supp/pbr/lm_sl_lift_01/000000002_3.jpg" /></a><a href="img/supp/pbr/lm_sl_lift_01/000000001_2.jpg"><img src="img/supp/pbr/lm_sl_lift_01/000000001_2.jpg" /></a><a href="img/supp/pbr/lm_16.jpg"><img src="img/supp/pbr/lm_16.jpg" /></a><a href="img/supp/pbr/lm_sl_lift_06/000000000_2.jpg"><img src="img/supp/pbr/lm_sl_lift_06/000000000_2.jpg" /></a><a href="img/supp/pbr/lm_sl_lift_06/000000015.jpg"><img src="img/supp/pbr/lm_sl_lift_06/000000015.jpg" /></a><a href="img/supp/pbr/lm_13.jpg"><img src="img/supp/pbr/lm_13.jpg" /></a><a href="img/supp/pbr/lm_sl_lift_06/000000028_1.jpg"><img src="img/supp/pbr/lm_sl_lift_06/000000028_1.jpg" /><img src="img/supp/pbr/lm_sl_lift_07/000000620.jpg" /></a><a href="img/supp/pbr/lm_06.jpg"><img src="img/supp/pbr/lm_06.jpg" /></a><a href="img/supp/pbr/lm_14.jpg"><img src="img/supp/pbr/lm_14.jpg" /></a><a href="img/supp/pbr/lm_sl_lift_07/000001179.jpg"><img src="img/supp/pbr/lm_sl_lift_07/000001179.jpg" /></a><a href="img/supp/pbr/ruapc/000000010_4.jpg"><img src="img/supp/pbr/ruapc/000000010_4.jpg" /></a><a href="img/supp/pbr/ruapc/000000006_3.jp"><img src="img/supp/pbr/ruapc/000000006_3.jpg" /></a><a href="img/supp/pbr/ruapc_03.jpg"><img src="img/supp/pbr/ruapc_03.jpg" /></a><a href="img/supp/pbr/ruapc_02.jpg"><img src="img/supp/pbr/ruapc_02.jpg" /></a>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery.min.js"><\/script>')</script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
